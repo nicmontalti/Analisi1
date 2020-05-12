@@ -1,0 +1,108 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\newtheorem{teorema}{Teorema}[section]
+\newcommand{\teor}[2][]{\begin{teorema}[#1]#2\end{teorema}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Rbar}{\overline{\mathbb{R}}}
+\newcommand{\Lim}[1][]{\xrightarrow[#1]{}}
+\renewcommand{\,}{\text{, }}
+
+\title{Anlisi 1}
+\author{Nicolò Montalti}
+\date{}
+
+\begin{document}
+\maketitle
+\section{Limiti di successioni}
+\teor[Unicità del limite]{Sia $\alpha\, \beta \in \Rbar$.
+    \[
+        \text{Se } a_n \Lim \alpha, a_n \Lim \beta \implies \alpha = \beta
+    \]
+}
+\teor[TLS Limiti delle sottosuccessioni]{
+    Sia $\alpha \in \Rbar$.
+    \[
+        \text{Se } a_n \Lim \alpha \implies \forall (a_k)_n \text{ s.s di } a_n \text{ si ha }(a_k)_n \Lim \alpha
+    \]
+}
+\teor[TPS Permanenza del segno]{
+    Siano $(a_n)\, (b_n)$ s. in $\R$\, $a\,b \in \Rbar$.
+    \[
+        \text{Se } a_n \Lim a\, b_n \Lim b\, a_n \leq b_n \text{ } \forall n \in \N \implies a \leq  b
+    \]
+}
+\teor[T2C Due carabinieri]{
+    Siano $(a_n)\, (b_n)\, (c_n)$ s. in $\R$\, $\lambda \in \R$.
+    \[
+        \text{Se } a_n \Lim \lambda\, b_n \Lim \lambda\, a_n \leq b_n \leq c_n \text{ } \forall n \in \N \implies b_n \Lim \lambda
+    \]
+}
+\teor[TSM Successioni monotone]{
+    \begin{align*}
+        \text{Se } (a_n) \nearrow & \implies \exists \lim_{n\to\infty} a_n = \sup_{n \in \N} (a_n) \\
+        \text{Se } (a_n) \searrow & \implies \exists \lim_{n\to\infty} a_n = \inf_{n \in \N} (a_n)
+    \end{align*}
+}
+\teor[Criterio del rapporto]{
+    Sia $a_n > 0$ s. in $\R \, \frac{a_{n+1}}{a_n} \Lim \lambda \in \Rbar$.
+    \begin{align*}
+        \text{Se } \lambda > 1 & \implies a_n \Lim +\infty \\
+        \text{Se } \lambda < 1 & \implies a_n \Lim 0
+    \end{align*}
+}
+\teor[CSE Continuità sequenziale dell'esponenziale]{
+    Sia $x_n$ s. in $\R$.
+    \[
+        \text{Se } x_n \Lim x_0 \in \R \implies e^{x_n} \Lim e^{x_0}
+    \]
+}
+\teor[CSL Continuità sequenziale del logaritmo]{
+    Sia $x_n$ s. in $\R$.
+    \[
+        \text{Se } x_n \Lim x_0 \in \R \implies log_a(x_n) \Lim log_a(x_0)
+    \]
+}
+\teor[Criterio di Cesaro]{
+    Siano $a_n\, b_n$ s. in $\R\, b_n \nearrow \text{s.}\, b_n \Lim +\infty$.
+    \[
+        \text{Se } \exists \lim_{n\to\infty}\frac{a_{n+1} - a_n}{b_{n+1}-b_n} = \lambda \in \Rbar \implies \lim_{n\to\infty}\frac{a_n}{b_n} = \lambda
+    \]
+}
+\section{Limiti di funzioni}
+Siano $A \subseteq \R^N \, f:A \rightarrow \R^M \, \alpha \in D(A) \, \lambda\, \mu \in \R^M (\bar{\R} \text{ se } M = 1)$
+\teor[Unicità del limite]{
+    \[
+        \text{Se } f(x) \Lim[x \to \alpha] \lambda\, f(x) \Lim[x \to \alpha] \mu \implies \lambda = \mu
+    \]
+}
+\teor[TLR Limite delle restrizioni]{
+    Sia $B \subseteq A\, \alpha \in D(B)$.
+    \[
+        \text{Se } f(x) \Lim[x \to \alpha] \lambda \implies f|_B(x) \Lim[x \to \alpha] \lambda
+    \]
+    dove $f|_B: B \rightarrow \R^M \, f|_B(x) := f(x)$
+}
+\teor[CSL Caratterizzazione sequenziale del limite]{
+    \[
+        f(x) \Lim[x \to \alpha] \lambda \iff f(x_n) \Lim \lambda \quad \forall (x_n) \text{ s. in } A \smallsetminus {\alpha} \, x_n \to \alpha
+    \]
+}
+\teor[TLM Limite delle funzioni monotone]{
+Sia $x_0 \in \R^M\, f \nearrow$
+\begin{align*}
+    \text{Se } x_0 \in D(A_{x_0}^-) & \implies f(x) \Lim[x \to x_0^-] \sup_{A_{x_0}^-}f \\
+    \text{Se } x_0 \in D(A_{x_0}^+) & \implies f(x) \Lim[x \to x_0^+] \inf_{A_{x_0}^-}f \\
+    \text{Se } +\infty \in D(A)     & \implies f(x) \Lim[x \to +\infty] \sup_{A}f       \\
+    \text{Se } -\infty \in D(A)     & \implies f(x) \Lim[x \to -\infty] \inf_{A}f
+\end{align*}
+dove $A_{x_0}^- := A \text{ }\cap \text{ } ]-\infty \, x_0[ \, A_{x_0}^+ := A \text{ }\cap \text{ } ]x_0\, +\infty[$. Un risultato analogo vale per $f \searrow$
+}
+\end{document}
+
