@@ -104,5 +104,37 @@ Sia $x_0 \in \R^M\, f \nearrow$
 \end{align*}
 dove $A_{x_0}^- := A \text{ }\cap \text{ } ]-\infty \, x_0[ \, A_{x_0}^+ := A \text{ }\cap \text{ } ]x_0\, +\infty[$. Un risultato analogo vale per $f \searrow$
 }
+\section{Continuità}
+\teor[CSC Caratterizzazione sequenziale della continuità]{Sia $x_0 \in A$.
+    Siano $A \subseteq \R^N \, f:A \to \R^M \, x_0 \in A$.
+    \[
+        f \text{ è continua in } x_0 \iff f(x_n) \Lim f(x_0) \quad \forall x_n \to x_0
+    \]
+}
+\teor[Bolzano]{
+    Siano $a\, b \in \R \text{ con } a < b\, f \in C([a,b], \R)$.
+    \[
+        \text{Se } f(a)f(b) \leq 0 \implies \exists x_0 \in [a,b] : f(x_0) = 0
+    \]
+}
+Sia $I$ un intervallo di $\R$.
+\teor[TVI Valore intermedio]{
+    Sia $f \in C(I,\R)$.
+    \begin{align*}
+        \text{Dato } y \in \R : f(a) < f(y) < f(b) & \implies \exists x_0 \in I : f(x_0) = y \\
+        f(I)                                       & \text{ è un intervallo}
+    \end{align*}
+}
+\teor{
+    Sia $f \in C(I, \R)\, f \text{ 1-1}$, posto $J = f(I)$.
+    \begin{align*}
+         & J \text{ è un intervallo, } f \xrightarrow[\text{su}]{1-1} J \\
+         & f^{-1} \in C(J)
+    \end{align*}
+}
+\teor[Weierstrass]{
+    Sia $A \in \R$ chiuso e limitato, $f \in C(A, \R) \implies \exists \max_A f \, \exists \min_A f$
+
+}
 \end{document}
 
