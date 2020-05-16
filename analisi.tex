@@ -6,6 +6,8 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{accents}
+\usepackage{interval}
 \newtheorem{teorema}{Teorema}[section]
 \newcommand{\teor}[2][]{\begin{teorema}[#1]#2\end{teorema}}
 \newcommand{\R}{\mathbb{R}}
@@ -95,14 +97,14 @@ Siano $A \subseteq \R^N \, f:A \rightarrow \R^M \, \alpha \in D(A) \, \lambda\, 
     \]
 }
 \teor[TLM Limite delle funzioni monotone]{
-Sia $x_0 \in \R^M\, f \nearrow$
-\begin{align*}
-    \text{Se } x_0 \in D(A_{x_0}^-) & \implies f(x) \Lim[x \to x_0^-] \sup_{A_{x_0}^-}f \\
-    \text{Se } x_0 \in D(A_{x_0}^+) & \implies f(x) \Lim[x \to x_0^+] \inf_{A_{x_0}^-}f \\
-    \text{Se } +\infty \in D(A)     & \implies f(x) \Lim[x \to +\infty] \sup_{A}f       \\
-    \text{Se } -\infty \in D(A)     & \implies f(x) \Lim[x \to -\infty] \inf_{A}f
-\end{align*}
-dove $A_{x_0}^- := A \text{ }\cap \text{ } ]-\infty \, x_0[ \, A_{x_0}^+ := A \text{ }\cap \text{ } ]x_0\, +\infty[$. Un risultato analogo vale per $f \searrow$
+    Sia $x_0 \in \R^M\, f \nearrow$
+    \begin{align*}
+        \text{Se } x_0 \in D(A_{x_0}^-) & \implies f(x) \Lim[x \to x_0^-] \sup_{A_{x_0}^-}f \\
+        \text{Se } x_0 \in D(A_{x_0}^+) & \implies f(x) \Lim[x \to x_0^+] \inf_{A_{x_0}^-}f \\
+        \text{Se } +\infty \in D(A)     & \implies f(x) \Lim[x \to +\infty] \sup_{A}f       \\
+        \text{Se } -\infty \in D(A)     & \implies f(x) \Lim[x \to -\infty] \inf_{A}f
+    \end{align*}
+    dove $A_{x_0}^- := A \text{ }\cap \text{ } \interval[open]{-\infty}{ x_0} \, A_{x_0}^+ := A \text{ }\cap \text{ } \interval[open]{x_0}{ +\infty}$. Un risultato analogo vale per $f \searrow$
 }
 \section{Continuità}
 \teor[CSC Caratterizzazione sequenziale della continuità]{Sia $x_0 \in A$.
@@ -112,9 +114,9 @@ dove $A_{x_0}^- := A \text{ }\cap \text{ } ]-\infty \, x_0[ \, A_{x_0}^+ := A \t
     \]
 }
 \teor[Bolzano]{
-    Siano $a\, b \in \R \text{ con } a < b\, f \in C([a,b], \R)$.
+    Siano $a\, b \in \R \text{ con } a < b\, f \in C(\interval{a}{b}, \R)$.
     \[
-        \text{Se } f(a)f(b) \leq 0 \implies \exists x_0 \in [a,b] : f(x_0) = 0
+        \text{Se } f(a)f(b) \leq 0 \implies \exists x_0 \in \interval{a}{b} : f(x_0) = 0
     \]
 }
 Sia $I$ un intervallo di $\R$.
@@ -126,7 +128,7 @@ Sia $I$ un intervallo di $\R$.
     \end{align*}
 }
 \teor{
-    Sia $f \in C(I, \R)\, f \text{ 1-1}$, posto $J = f(I)$.
+    Sia $f \in C(I, \R)\, f \text{ 1-1}$, posto $J = f(I)$. Allora
     \begin{align*}
          & J \text{ è un intervallo, } f \xrightarrow[\text{su}]{1-1} J \\
          & f^{-1} \in C(J)
@@ -135,6 +137,37 @@ Sia $I$ un intervallo di $\R$.
 \teor[Weierstrass]{
     Sia $A \in \R$ chiuso e limitato, $f \in C(A, \R) \implies \exists \max_A f \, \exists \min_A f$
 
+}
+\section{Derivate}
+\teor[Fermat]{
+    Sia $f:A \to \R \, x_0 \in \accentset{\circ}{A}\, f'(x_0) \in \R$.
+    \[
+        \text{Se } x_0 \text{ è un p.to estremante locale} \implies f'(x_0) = 0
+    \]
+}
+\teor[Rolle]{
+    Siano $a,b \in \R \, a < b \, f \in C(\interval{a}{b}, \R) \, f$ derivabile in $\interval[open]{a}{b}$.
+    \[
+        \text{Se } f(a) = f(b) \implies \exists x_0 \in \interval[open]{a}{b}: f'(x_0) = 0
+    \]
+}
+\teor[TVML Valor medio di Lagrange]{
+    Siano $a,b \in \R \, a < b \, f \in C(\interval{a}{b}, \R) \, f$ derivabile in $\interval[open]{a}{b}$.
+    \[
+        \text{Allora } \exists x_0 \in \interval[open]{a}{b} : f'(x_0) = \frac{f(b) - f(a)}{b-a}
+    \]
+}
+\teor[TM Test monotonia]{
+    Sia $I$ un intervallo su $\R$, $f:I \to \R$ derivabile in $I$.
+    \begin{align}
+        f'(x) = 0 \quad \forall x \in I             & \iff f \text{ è costante in } I \\
+        f'(x) \ge 0 \quad           \forall x \in I & \iff f \nearrow                 \\
+        f'(x) > 0 \quad           \forall x \in I   & \implies f \nearrow s.          \\
+        f \nearrow s.                               & \iff
+        \begin{cases}
+             & f'(x) \ge 0 \quad \forall x \in I \\  &\text{int}(\{x \in \R / f'(x) = 0\}) = \emptyset
+        \end{cases}
+    \end{align}
 }
 \end{document}
 
