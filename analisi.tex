@@ -169,5 +169,38 @@ Sia $I$ un intervallo di $\R$.
         \end{cases}
     \end{align}
 }
+\teor[Taylor con resto di Peano]{
+    Siano $I$ intervallo di $\R \, x_0 \in I \, f$ derivabile n volte in $x_0$. Allora
+    \[
+        f(x) = \sum_{k = 0}^{n} \frac{f^{(k)} (x-x_0)^k}{k!} + o((x-x_0)^n)_{x \to x_0}
+    \]
+}
+\teor[Tayor con resto di Lagrange]{
+    Siano $I$ intervallo aperto di $\R \, x_0 \in I \, f$ derivabile n volte in $x_0$. Allora $\forall x \in I \quad \exists y_x \in (x_0,x)$ tale che
+    \[
+        f(x) = T_{n-1}(x) + \frac{f^{(n)}(y_x)}{n!}(x-x_0)^{n}
+    \]
+}
+\teor[TH De l'Hôpital]{
+    Siano $I$ intervallo di $\R \, x_0 \in D(I) \, f,g: I \setminus \{x_0\} \to \R $ derivabili in $I \setminus \{ x_0 \}$ con $g'(x) \neq 0$ $ \forall x \in I \setminus \{x_0\}$. $f(x) \, g(x) \Lim[x \to x_0] 0$ o $|g(x)| \Lim[x \to x_0] +\infty$. Allora
+    \[
+        \text{se } \frac{f'(x)}{g'(x)} \Lim[x \to x_0] \lambda \in \Rbar \implies \frac{f(x)}{g(x)} \Lim[x \to x_0] \lambda
+    \]
+
+}
+\teor{
+    Sia I intervallo non banale di $\R \, f : I \to \R$ derivabile in I. Allora $f$ è convessa $\iff f' \nearrow$
+}
+\teor{
+    Sia $f : I \to \R$ derivabile due volte in I. Allora $f$ è convessa $\iff f''(x) \ge 0 \quad \forall x \in I$
+}
+\teor{
+    Sia $f \in C^{n+1}(I, \R)$, $x_0 \in \accentset{\circ}{I}$ con $f^{(k)}(x_0) = 0$ per $k \le n$ e $f^{(n+1)}(x_0) \ne 0$. Allora
+    \begin{align*}
+         & x_0 \text{ è un punto di massimo locale forte di f se (n+1) è pari e } f^{(n+1)}(x_0) < 0 \\
+         & x_0 \text{ è un punto di minimo locale forte di f se (n+1) è pari e } f^{(n+1)}(x_0) > 0  \\
+         & x_0 \text{ non è un punto estremante se (n+1) è dispari}
+    \end{align*}
+}
 \end{document}
 
