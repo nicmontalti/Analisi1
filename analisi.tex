@@ -238,5 +238,30 @@ Sia $I$ un intervallo di $\R$.
         f(x) = T_n(x) + \frac{1}{n!} \int_{x_0}^x (x -t)^n f^{(n+1)}(t) dt
     \]
 }
+
+\section{Integrali generalizzati}
+Siano $a \in \R \, \beta \in \Rbar \, a < \beta \,  f \in C(\mathclose [ a, \beta \mathopen [, \R)$.
+\teor[C$\exists$ Criterio di esistenza]{
+\[
+    \text{Se } f(x) \ge 0 \quad \forall x \in \mathclose [ a, \beta \mathopen [ \implies \exists \int_a^{\beta}f(x)dx \in \interval{0}{+\infty}
+\]
+}
+\teor[CC Criterio del confronto]{
+Sia $f(x) \ge 0 \, g(x) \ge 0 \, \forall x \in \mathclose [ a, \beta \mathopen [ $.
+\[
+    \text{Se } f(x) = \mathcal{O}_{x \to \beta ^ -}(g(x)) \, \int_a^{\beta} g \in \R \implies \int_a^{\beta} f \in \R
+\]
+}
+\teor[CCA Criterio di convergenza assoluta]{
+    \[
+        \text{Se } \int_a^{\beta} \left | f \right | \in \R \implies \exists \int_a^{\beta} f \in \R
+    \]
+}
+\teor[CFO Criterio delle funzioni oscillanti]{
+Sia $f \in C(\mathclose [ a, \beta \mathopen [, \R) : $ f abbia una primitiva limitata in $\mathclose [ a, \beta \mathopen [$, $g \in C^{1}(\mathclose [ a, \beta \mathopen [, \R) : g \searrow_{x \to \beta^-} 0$. Allora
+\[
+    \exists  \int_a^{\beta} fg \in \R
+\]
+}
 \end{document}
 
