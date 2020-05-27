@@ -12,6 +12,7 @@
 \newcommand{\teor}[2][]{\begin{teorema}[#1]#2\end{teorema}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand{\Rbar}{\overline{\mathbb{R}}}
 \newcommand{\Lim}[1][]{\xrightarrow[#1]{}}
 \renewcommand{\,}{\text{, }}
@@ -262,6 +263,35 @@ Sia $f \in C(\mathclose [ a, \beta \mathopen [, \R) : $ f abbia una primitiva li
 \[
     \exists  \int_a^{\beta} fg \in \R
 \]
+}
+\section{Serie}
+\teor[CZ Criterio zero]{
+    Sia $a_n$ succcessione in $\R$.
+    \[
+        \text{Se } \sum_{k=1}^{+\infty} a_k \text{ conv. } \implies a_n \Lim[n \to \infty] 0
+    \]
+}
+\teor[C$\exists$ Criterio di esistenza]{
+    Sia $a_n$ succcessione in $\R \, a_n \ge 0 \quad \forall n \in \N$. Allora
+    \[
+        \sum_{k=1}^{+\infty} a_k \text{ conv.}
+    \]
+}
+\teor[CI Criterio integrale]{
+    Sia $f \in C(\mathopen [ 1, +\infty \mathclose ]) \, f \searrow \, f \ge 0$. Allora
+    \[
+        \sum_{k=1}^{+\infty} f(k) \text{ conv. } \iff \int_1^{+\infty} f(x) dx \text{ conv.}
+    \]
+}
+\teor[CAD Criterio di Abel-Dirichlet]{
+    Siano $a_n$ successione in $\R$, $b_n$ succession in $\C$. Allora
+    \[
+        \text{se } a_n \searrow 0 \, \sum_{k=1}^{N} b_k \text{ è limitata} \implies \sum_{k=1}^{+\infty} a_k b_k \text{ conv.}\]
+}
+\teor[CL Criterio di Leibnitz]{
+    Siano $a_n$ successione in $\R \, a_n \searrow 0$. Allora
+    \[
+        \sum_{k = 1}^{+\infty} (-1)^k a_k \text{ conv.} \]
 }
 \end{document}
 
